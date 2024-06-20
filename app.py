@@ -1,4 +1,5 @@
 from flask import Flask, request, session
+from collections import OrderedDict
 from twilio.twiml.messaging_response import MessagingResponse
 import sqlite3
 import os
@@ -74,7 +75,7 @@ conversation_steps = {
         "يرجى إرسال صورة لجسمك (من الخلف)."
     ]
 }
-
+session = OrderedDict()
 @app.route('/whatsapp', methods=['POST'])
 def whatsapp():
     incoming_msg = request.values.get('Body', '').lower()
