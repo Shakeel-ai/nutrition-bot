@@ -75,7 +75,7 @@ conversation_steps = {
         "يرجى إرسال صورة لجسمك (من الخلف)."
     ]
 }
-session = OrderedDict()
+session = {}
 @app.route('/whatsapp', methods=['POST'])
 def whatsapp():
     incoming_msg = request.values.get('Body', '').lower()
